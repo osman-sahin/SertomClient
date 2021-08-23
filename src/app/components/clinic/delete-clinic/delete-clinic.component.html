@@ -1,0 +1,29 @@
+<h4 class="text-center">Klinik Sil</h4>
+<form class="col-12" [formGroup]="clinicForm" (ngSubmit)="submitForm(clinicForm.value)"> 
+    <div class="row justify-content-center m-0 py-2 shadow">
+        <div class="col-12 px-sm-5 d-flex flex-wrap">
+            <div class="form-group col-12 col-sm-7 px-0">
+                <label for="clinicName">
+                    Klinik AdıXXX
+                    <!-- {{'subject' | translate | uppercase}} -->
+                </label>
+                <input type="text" readonly class="form-control" id="clinicName" formControlName="clinicName"
+                [ngClass]="{ 'is-invalid': submitted && f.clinicName.errors }">
+                <small class="form-text text-muted danger"
+                    *ngIf="submitted && f.clinicName.errors" class="invalid-feedback">
+                    <div *ngIf=" f.clinicName.errors.required">
+                        Konu belirtinizXX
+                        <!-- {{'pleaseSpecifySubject' | translate | uppercase}} -->
+                    </div>
+                </small>
+            </div>
+            <div class="d-flex">
+                <button type="submit" class="btn btn-primary align-self-end"
+                routerLinkActive="router-link-active">
+                    GönderXXX
+                    <!-- {{'sendMessage' | translate | uppercase}} -->
+                </button>
+            </div>
+        </div>
+    </div>
+</form>

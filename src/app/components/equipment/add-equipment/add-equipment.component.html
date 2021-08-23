@@ -1,0 +1,99 @@
+<h4 class="text-center">Ekipman Ekle</h4>
+<form class="col-12 form-inline" [formGroup]="equipmentForm" (ngSubmit)="submitForm(equipmentForm.value)">
+    <div class="row justify-content-center m-0 py-2 shadow">
+        <div class="col-12 px-sm-5 d-flex flex-wrap">
+            <div class="form-group col-12 col-sm-7 px-0">
+                <label for="equipmentName">
+                    Ekipman Adı
+                    <!-- {{'subject' | translate | uppercase}} -->
+                </label>
+                <input type="text" class="form-control" id="equipmentName" formControlName="equipmentName"
+                    [ngClass]="{ 'is-invalid': submitted && f.equipmentName.errors }">
+                <small class="form-text text-muted danger" *ngIf="submitted && f.equipmentName.errors"
+                    class="invalid-feedback">
+                    <div *ngIf=" f.equipmentName.errors.required">
+                        Ekipman Adı Zorunludur
+                        <!-- {{'pleaseSpecifySubject' | translate | uppercase}} -->
+                    </div>
+                </small>
+            </div>
+            <div class="form-group col-12 col-sm-7 px-0">
+                <label for="procurementDate">
+                    Temin Tarihi
+                    <!-- {{'subject' | translate | uppercase}} -->
+                </label>
+                <input type="date" class="form-control" id="procurementDate" formControlName="procurementDate"
+                    [ngClass]="{ 'is-invalid': submitted && f.procurementDate.errors }">
+                <small class="form-text text-muted danger" *ngIf="submitted && f.procurementDate.errors"
+                    class="invalid-feedback">
+                </small>
+            </div>
+            <div class="form-group col-12 col-sm-7 px-0">
+                <label for="quantity">
+                    Adet
+                    <!-- {{'subject' | translate | uppercase}} -->
+                </label>
+                <input type="number" step="1" min="1" class="form-control" id="quantity" formControlName="quantity"
+                    [ngClass]="{ 'is-invalid': submitted && f.quantity.errors }">
+                <small class="form-text text-muted danger" *ngIf="submitted && f.quantity.errors"
+                    class="invalid-feedback">
+                    <div *ngIf=" f.quantity.errors.required">
+                        Adet Belirtiniz
+                        <!-- {{'pleaseSpecifySubject' | translate | uppercase}} -->
+                    </div>
+                </small>
+            </div>
+            <div class="form-group col-12 col-sm-7 px-0">
+                <label for="unitPrice">
+                    Birim Fiyatı
+                    <!-- {{'subject' | translate | uppercase}} -->
+                </label>
+                <input type="number" class="form-control" id="unitPrice" formControlName="unitPrice"
+                    [ngClass]="{ 'is-invalid': submitted && f.unitPrice.errors }">
+                <small class="form-text text-muted danger" *ngIf="submitted && f.unitPrice.errors"
+                    class="invalid-feedback">
+                    <div *ngIf=" f.unitPrice.errors.required">
+                        Birim Fiyat 0.01'den az olamaz ve zorunludur.
+                        <!-- {{'pleaseSpecifySubject' | translate | uppercase}} -->
+                    </div>
+                </small>
+            </div>
+            <div class="form-group col-12 col-sm-7 px-0">
+                <label for="utilizationRatio">
+                    Kullanım Oranı
+                    <!-- {{'subject' | translate | uppercase}} -->
+                </label>
+                <input type="text" class="form-control" id="utilizationRatio" formControlName="utilizationRatio"
+                    [ngClass]="{ 'is-invalid': submitted && f.utilizationRatio.errors }">
+                <small class="form-text text-muted danger" *ngIf="submitted && f.utilizationRatio.errors"
+                    class="invalid-feedback">
+                    <div *ngIf=" f.utilizationRatio.errors.required">
+                        Kullanım Oranı 0.0 ile 100.0 arasında olmalıdır.
+                        <!-- {{'pleaseSpecifySubject' | translate | uppercase}} -->
+                    </div>
+                </small>
+            </div>
+            <div class="form-group col-12 col-sm-7 px-0">
+                <label for="clinicId">
+                    Klinik Id
+                    <!-- {{'subject' | translate | uppercase}} -->
+                </label>
+                <input type="text" class="form-control" id="clinicId" formControlName="clinicId"
+                    [ngClass]="{ 'is-invalid': submitted && f.clinicId.errors }">
+                <small class="form-text text-muted danger" *ngIf="submitted && f.clinicId.errors"
+                    class="invalid-feedback">
+                    <div *ngIf=" f.clinicId.errors.required">
+                        Klinik Id Zorunludur.
+                        <!-- {{'pleaseSpecifySubject' | translate | uppercase}} -->
+                    </div>
+                </small>
+            </div>
+            <div class="d-flex">
+                <button type="submit" class="btn btn-primary align-self-end" routerLinkActive="router-link-active">
+                    Ekle
+                    <!-- {{'sendMessage' | translate | uppercase}} -->
+                </button>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,41 @@
+<h4 class="text-center">Ekipman Listele</h4>
+<div class="d-flex"> 
+    <a class="btn btn-success btn-block" [routerLink]="['/equipment/add']"
+    routerLinkActive="router-link-active">Yeni Ekipman Ekle</a>
+</div>
+<div class="p-3">
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+        <thead>
+            <tr>
+                <th>Ekipman Adı</th>
+                <th>Temin Tarihi</th>
+                <th>Adet</th>
+                <th>Birim Fİyatı</th>
+                <th>Kullanım Oranı</th>
+                <th>Klinik Id</th>
+                <th width="150px;">İşlemler</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="dataSource">
+            <tr *ngFor="let item of dataSource">
+                <td scope="row">{{item.equipmentName}}</td>
+                <td scope="row">{{item.procurementDate}}</td>
+                <td scope="row">{{item.quantity}}</td>
+                <td scope="row">{{item.unitPrice}}</td>
+                <td scope="row">%{{item.utilizationRatio}}</td>
+                <td scope="row">{{item.clinicId}}</td>
+                <td>
+                    <a class="btn btn-warning mr-1" [routerLink]="['/equipment/update',item.id]"
+                        routerLinkActive="router-link-active">Güncelle</a>
+                    <a class="btn btn-danger" [routerLink]="['/equipment/delete',item.id]"
+                        routerLinkActive="router-link-active">Sil</a>
+                </td>
+            </tr>
+        </tbody>
+        <tbody *ngIf="!dataSource">
+            <tr>
+                <td scope="row">No Result Found</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
